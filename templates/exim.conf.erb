@@ -300,7 +300,7 @@ PLAIN:
   server_prompts             = :
   server_condition           = ${lookup ldap \
     {\
-      user=\"<%= scope['exim::ldap_bind_dn'] %>\" pass=\"<%= scope['exim::ldap_passwd'] %>\" <%= scope['exim::ldap_proto'] %>:///<%= scope['exim::ldap_base_dn'] %>?<%= scope['exim::ldap_auth_attrib'] %>?sub?(&(<%= scope['exim::ldap_user_attrib'] %>=${quote_ldap:$auth2})<%= scope['exim::ldap_filter'] %>)\
+      user=\"<%= scope['exim::ldap_bind_dn'] %>\" pass=\"<%= scope['exim::ldap_passwd'] %>\" referrals=\"<%= scope['exim::ldap_referrals'] %>\" <%= scope['exim::ldap_proto'] %>:///<%= scope['exim::ldap_base_dn'] %>?<%= scope['exim::ldap_auth_attrib'] %>?sub?(&(<%= scope['exim::ldap_user_attrib'] %>=${quote_ldap:$auth2})<%= scope['exim::ldap_filter'] %>)\
     }\
     {\
       ${if ldapauth \
@@ -323,7 +323,7 @@ LOGIN:
   server_prompts             = <| Username: | Password:
   server_condition           = ${lookup ldap \
     {\
-      user=\"<%= scope['exim::ldap_bind_dn'] %>\" pass=\"<%= scope['exim::ldap_passwd'] %>\" <%= scope['exim::ldap_proto'] %>:///<%= scope['exim::ldap_base_dn'] %>?<%= scope['exim::ldap_auth_attrib'] %>?sub?(&(<%= scope['exim::ldap_user_attrib'] %>=${quote_ldap:$auth1})<%= scope['exim::ldap_filter'] %>)\
+      user=\"<%= scope['exim::ldap_bind_dn'] %>\" pass=\"<%= scope['exim::ldap_passwd'] %>\" referrals=\"<%= scope['exim::ldap_referrals'] %>\" <%= scope['exim::ldap_proto'] %>:///<%= scope['exim::ldap_base_dn'] %>?<%= scope['exim::ldap_auth_attrib'] %>?sub?(&(<%= scope['exim::ldap_user_attrib'] %>=${quote_ldap:$auth1})<%= scope['exim::ldap_filter'] %>)\
     }\
     {\
       ${if ldapauth \

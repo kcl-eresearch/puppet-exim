@@ -59,6 +59,7 @@ class exim (
   String $ldap_user_attrib                                   = 'sAMAccountName',
   String $ldap_auth_attrib                                   = 'userPrincipalName',
   Optional[String] $ldap_filter                              = '(objectClass=user)',
+  Enum['follow', 'nofollow'] $ldap_referrals                 = 'follow',
   Boolean $dkim_sign                                         = false,
   String $dkim_config_file                                   = $exim::params::dkim_config_file,
   String $dkim_keys_path                                     = $exim::params::dkim_keys_path,
