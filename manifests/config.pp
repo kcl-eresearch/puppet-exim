@@ -16,12 +16,13 @@ class exim::config {
 
   file {
     $exim::config_file:
-      ensure  => 'present',
-      owner   => 'root',
-      group   => $exim::service_group,
-      mode    => '0440',
-      content => $config_file_content,
-      notify  => Service[$exim::service_name];
+      ensure    => 'present',
+      owner     => 'root',
+      group     => $exim::service_group,
+      mode      => '0440',
+      content   => $config_file_content,
+      show_diff => $exim::config_file_show_diff,
+      notify    => Service[$exim::service_name];
   }
 
   if $exim::dkim_sign {
