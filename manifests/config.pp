@@ -93,13 +93,6 @@ class exim::config {
         fail('You must provide all ldap_* parameters when auth_ldap_enable is true')
       }
     }
-
-    # Because file will contain LDAP password
-    if $exim::auth_ldap_enable {
-      File[$exim::config_file] {
-        show_diff => false,
-      }
-    }
   }
 
   service {
