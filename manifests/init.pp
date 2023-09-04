@@ -66,6 +66,7 @@ class exim (
   Boolean $create_mta_fact                                   = true,
   String $mta_fact_file                                      = '/opt/puppetlabs/facter/facts.d/mta.yaml',
   Hash[Stdlib::Fqdn, Struct[{'selector' => String, 'key' => String, 'strict' => Boolean}]] $dkim_keys = {},
+  Optional[String] $custom_config                            = undef,
 ) inherits exim::params {
 
   contain ::exim::install

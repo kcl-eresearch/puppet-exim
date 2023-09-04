@@ -8,13 +8,19 @@ class exim::config {
   $sender_unqualified_hosts_txt = join($exim::sender_unqualified_hosts, ' : ')
   $recipient_unqualified_hosts_txt = join($exim::recipient_unqualified_hosts, ' : ')
 
+  if $exim::custom_config {
+    $config_file_content = $exim::custom_config
+  } else {
+    $config_file_content = template('exim/exim.conf.erb')
+  }
+
   file {
     $exim::config_file:
       ensure  => 'present',
       owner   => 'root',
       group   => $exim::service_group,
       mode    => '0440',
-      content => template('exim/exim.conf.erb'),
+      content => $config_file_content,
       notify  => Service[$exim::service_name];
   }
 
