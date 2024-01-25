@@ -69,6 +69,7 @@ class exim (
   Optional[String] $custom_config                            = undef,
   Boolean $config_file_show_diff                             = false,
   Optional[String] $acl_config                               = undef,
+  String $main_config_custom                                 = '',
 ) inherits exim::params {
 
   contain ::exim::install

@@ -79,6 +79,7 @@ ldap_require_cert = <%= scope['exim::ldap_require_cert'] %>
 ldap_ca_cert_file = <%= scope['exim::ldap_ca_cert_file'] %>
 <% end %>
 
+<%= scope['exim::main_config_custom'] %>
 
 ######################################################################
 #                       ACL CONFIGURATION                            #
