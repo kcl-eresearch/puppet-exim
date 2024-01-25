@@ -11,6 +11,11 @@ class exim::config {
   if $exim::custom_config {
     $config_file_content = $exim::custom_config
   } else {
+    if $exim::acl_config {
+      $acl_config = $exim::acl_config
+    } else {
+      $acl_config = template('exim/acl.conf.erb')
+    }
     $config_file_content = template('exim/exim.conf.erb')
   }
 

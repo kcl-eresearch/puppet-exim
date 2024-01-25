@@ -68,6 +68,7 @@ class exim (
   Hash[Stdlib::Fqdn, Struct[{'selector' => String, 'key' => String, 'strict' => Boolean}]] $dkim_keys = {},
   Optional[String] $custom_config                            = undef,
   Boolean $config_file_show_diff                             = false,
+  Optional[String] $acl_config                               = undef,
 ) inherits exim::params {
 
   contain ::exim::install
