@@ -206,6 +206,11 @@ localuser:
   transport = maildir_home
   cannot_route_message = Unknown user
 
+<% if scope['exim::extra_routers'] -%>
+  <% scope['exim::extra_routers'].each do |router| %>
+  <%= router %>
+  <% end %>
+<% end -%>
 
 ######################################################################
 #                      TRANSPORTS CONFIGURATION                      #

@@ -8,6 +8,7 @@ class exim (
   Array[String] $local_domains                               = [$primary_hostname],
   Array[String] $relay_to_domains                            = [],
   Array[String] $relay_from_hosts                            = [],
+  Array[String] $extra_routers                               = [],
   Boolean $verify_sender                                     = true,
   Boolean $av_scanner_enable                                 = false,
   String $av_scanner                                         = 'clamd:/tmp/clamd',
