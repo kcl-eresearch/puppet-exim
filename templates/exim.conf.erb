@@ -165,7 +165,7 @@ begin transports
 
 remote_smtp:
   driver = smtp
-  message_size_limit = ${if > {$max_received_linelength}{998} {1}{0}}
+  message_size_limit = ${if > {$max_received_linelength}{<%= scope['exim::max_line_length'] %>} {1}{0}}
 <%- if scope['exim::dkim_sign'] %>
   dkim_domain = ${lookup{$sender_address_domain}lsearch*@{/etc/exim4/dkim.conf}{$sender_address_domain}{}}
   dkim_selector = ${extract{selector}{${lookup{$sender_address_domain}lsearch*@{/etc/exim4/dkim.conf}}}{$value}{}}
