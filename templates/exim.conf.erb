@@ -42,7 +42,7 @@ qualify_recipient = <%= scope['exim::qualify_recipient'] %>
 allow_domain_literals
 <% end %>
 
-never_users = <%= scope['exim::never_users_txt'] %>
+never_users = <%= @never_users_txt %>
 
 host_lookup = <%= @host_lookup_txt %>
 
